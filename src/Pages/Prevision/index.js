@@ -13,9 +13,11 @@ import { reactLocalStorage } from "reactjs-localstorage";
 const MatieresPremieres = () => {
   const [modalShow, setModalShow] = useState(false);
   const [currentRow, setCurrentRow] = useState({});
+  const [totalCA, setTotalCA] = useState(0);
   const dispatch = useDispatch();
-  const { matiereStatus, matieres } = useSelector((state) => state.matiere);
+  const { matiereStatus, previsions } = useSelector((state) => state.prevision);
   const newMatiere = reactLocalStorage.getObject("new-matiere");
+
   useEffect(() => {
     getMatieresAsync().then(() => {
       /** test if the object contains values */
@@ -94,8 +96,9 @@ const MatieresPremieres = () => {
                 type="button"
                 className="btn btn-wide btn-outline-primary"
                 onClick={() => {
-                  setModalShow(true);
+                  console.log(row.original);
                   setCurrentRow(row.original);
+                  setModalShow(true);
                 }}
               >
                 Détails
@@ -126,8 +129,13 @@ const MatieresPremieres = () => {
                   heading="Matiéres Premiéres"
                   subheading="Gérer les Matiéres Premiéres"
                   icon="pe-7s-eyedropper icon-gradient bg-dark font-weight-bolder"
-                  dataSize={matieres.length}
+                  dataSize={previsions
+                    .map((prevision) => prevision.CA)
+                    .reduce((accum, element) => {
+                      return parseFloat(accum) + parseFloat(element);
+                    }, 0)}
                   addNewMatiere={{}}
+                  secTitle='CA Prévisions'
                 />
               </div>
               {/* <h1>fournissuer</h1> */}
@@ -142,18 +150,20 @@ const MatieresPremieres = () => {
                         columns={referentsColumns}
                         defaultPageSize={10}
                         filterable
-                        data={matieres}
+                        data={previsions}
                       />
                     </CardBody>
                   </Card>
                 </Col>
               </Row>
             </CSSTransitionGroup>
-            <CenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-              currentRow={currentRow}
-            />{" "}
+            {modalShow && (
+              <CenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                currentRow={currentRow}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -4,11 +4,11 @@ import { data2 } from "../Pages/Prevision/dummyData";
 var _ = require("lodash");
 
 export const getCacheMatiere = () => {
-  let cachedPrevision = reactLocalStorage.getObject("matieres");
+  let cachedPrevision = reactLocalStorage.getObject("previsions");
   let matieresToReturn = [];
   if (Object.keys(cachedPrevision).length <= 0) {
-    reactLocalStorage.setObject("matieres", data2);
-    cachedPrevision = reactLocalStorage.getObject("matieres");
+    reactLocalStorage.setObject("previsions", data2);
+    cachedPrevision = reactLocalStorage.getObject("previsions");
   }
   var isEqual = _.isEqual(data2, cachedPrevision);
   if (!isEqual && Object.keys(cachedPrevision).length >= 0) {
@@ -20,12 +20,12 @@ export const getCacheMatiere = () => {
 };
 
 export const checkCacheMatiere = (storeMatieres) => {
-  const cachedMatieres = reactLocalStorage.getObject("matieres");
+  const cachedMatieres = reactLocalStorage.getObject("previsions");
   return _.isEqual(storeMatieres, cachedMatieres);
 };
 
 export const updateCacheMatiere = (position, replaceMatiere) => {
-  let cachedArray = reactLocalStorage.getObject("matieres");
+  let cachedArray = reactLocalStorage.getObject("previsions");
   cachedArray.splice(position, 1, replaceMatiere);
-  reactLocalStorage.setObject("matieres", cachedArray);
+  reactLocalStorage.setObject("previsions", cachedArray);
 };

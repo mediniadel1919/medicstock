@@ -4,7 +4,7 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import { getCacheMatiere, updateCacheMatiere } from "../utils/testCache2";
 
 export const getMatieres = createAsyncThunk(
-  "matieres/getMatieres",
+  "previsions/getPrevisions",
   async () => {
     return await axios
       .get("https://jsonplaceholder.typicode.com/users/")
@@ -21,7 +21,7 @@ export const addMatiere = createAsyncThunk(
     let matieresArray = [...getCacheMatiere()];
     matieresArray.unshift(matiere);
 
-    reactLocalStorage.setObject("matieres", matieresArray);
+    reactLocalStorage.setObject("previsions", matieresArray);
     return await axios
       .get("https://jsonplaceholder.typicode.com/users/")
       .then((res) => matieresArray)
@@ -29,44 +29,44 @@ export const addMatiere = createAsyncThunk(
   }
 );
 
-export const editMatiereAsyncr = createAsyncThunk(
-  "matieres/editMatiere",
+export const editPrevisionAsyncr = createAsyncThunk(
+  "matieres/editPrevision",
   async (filtredObject, { getState }) => {
-    const matieres = [...getState().matiere.matieres];
-    let elementPosition = matieres.findIndex(
+    const previsions = [...getState().prevision.previsions];
+    let elementPosition = previsions.findIndex(
       (el) => el.id === filtredObject.currentMatiere.id
     );
-    matieres.splice(elementPosition, 1, {
+    previsions.splice(elementPosition, 1, {
       id: filtredObject.currentMatiere.id,
       ...filtredObject.replaceMatiere,
     });
 
     // updateCacheMatiere(elementPosition,filtredObject.replaceMatiere)
-    console.log("pizii", matieres);
+    console.log("pizii", previsions);
     return await axios
       .get("https://jsonplaceholder.typicode.com/users/")
       .then((res) => {
-        reactLocalStorage.setObject("matieres", matieres);
+        reactLocalStorage.setObject("previsions", previsions);
 
-        return matieres;
+        return previsions;
       })
       .catch((e) => console.log(e));
   }
 );
 
 const matieresSlice = createSlice({
-  name: "matieres",
+  name: "previsions",
   initialState: {
-    matieres: [],
+    previsions: [],
     status: "idle",
   },
   reducers: {
     editMatiere: (state, action) => {
-      let elementPosition = state.matieres.findIndex(
+      let elementPosition = state.previsions.findIndex(
         (el) => el.id === action.payload.currentMatiere.id
       );
 
-      state.matieres.splice(elementPosition, 1, action.payload.replaceMatiere);
+      state.previsions.splice(elementPosition, 1, action.payload.replaceMatiere);
 
       updateCacheMatiere(elementPosition, action.payload.replaceMatiere);
     },
@@ -78,7 +78,7 @@ const matieresSlice = createSlice({
       })
       .addCase(getMatieres.fulfilled, (state, action) => {
         state.status = "success";
-        state.matieres = action.payload;
+        state.previsions = action.payload;
       })
       .addCase(getMatieres.rejected, (state, action) => {
         state.status = "failed";
@@ -87,18 +87,18 @@ const matieresSlice = createSlice({
         state.status = "loading";
       })
       .addCase(addMatiere.fulfilled, (state, action) => {
-        state.matieres = action.payload;
+        state.previsions = action.payload;
         state.status = "success";
       })
       .addCase(addMatiere.rejected, (state, action) => {
         state.status = "failed";
       })
-      .addCase(editMatiereAsyncr.fulfilled, (state, action) => {
-        state.matieres = action.payload;
+      .addCase(editPrevisionAsyncr.fulfilled, (state, action) => {
+        state.previsions = action.payload;
         state.status = "success";
       });
   },
 });
-export const { editMatiere } = matieresSlice.actions;
+export const { editPrevision } = matieresSlice.actions;
 
 export default matieresSlice.reducer;

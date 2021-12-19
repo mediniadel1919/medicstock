@@ -6,7 +6,7 @@ exports.data2 = [
     produitfinis: "0",
     qteafabriquer: "1000",
     PGHT: "5.45",
-    produitsemifini: "",
+    produitsemifini: "sss",
     CA: "4542",
     ratio: "1.2",
   },

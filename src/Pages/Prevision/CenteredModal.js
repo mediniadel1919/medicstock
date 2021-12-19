@@ -7,7 +7,7 @@ import { Button, CardContent } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { editMatiere, editMatiereAsyncr } from "../../redux/matieresSlice";
+import { editPrevision, editPrevisionAsyncr } from "../../redux/matieresSlice2";
 
 function CenteredModal(props) {
   const [stock, setStock] = useState(props.currentRow.stock);
@@ -60,8 +60,9 @@ function CenteredModal(props) {
 
   const onSubmit = (data) => {
     props.onHide();
+    console.log("Alk", data);
     dispatch(
-      editMatiereAsyncr({
+      editPrevisionAsyncr({
         currentMatiere: props.currentRow,
         replaceMatiere: { ...data },
       })
@@ -69,7 +70,7 @@ function CenteredModal(props) {
   };
 
   return (
-    <Modal {...props} size="lg" centered>
+    <Modal {...props} size="lg" centered >
       <Modal.Header closeButton>
         <Modal.Title>Détails de la matière premiére</Modal.Title>
       </Modal.Header>
@@ -106,88 +107,69 @@ function CenteredModal(props) {
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Designation"
-                            placeholder="Designation"
-                            defaultValue={props.currentRow.designation}
-                            {...register("designation", {})}
+                            label="Prévision y compris gratuité"
+                            placeholder="Prévision y compris gratuité"
+                            defaultValue={props.currentRow.previsiongratuiter}
+                            {...register("previsiongratuiter", {})}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Stock"
-                            placeholder="Stock"
-                            value={stock}
-                            {...register("stock", { value: stock })}
-                            onChange={onChangeStock}
+                            label="Produit finis"
+                            placeholder="Produit finis"
+                            // value={stock}
+                            defaultValue={props.currentRow.produitfinis}
+                            {...register("produitfinis")}
+                            // onChange={onChangeStock}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Consommation"
-                            placeholder="Consommation"
-                            value={consommation}
-                            {...register("consommation", {
-                              value: consommation,
+                            label="Produit semi finis"
+                            placeholder="Produit semi finis"
+                            // value={consommation}
+                            defaultValue={props.currentRow.produitsemifini}
+                            {...register("produitsemifini", {
+                              // value: consommation,
                             })}
-                            onChange={onChangeConsommation}
+                            // onChange={onChangeConsommation}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Restant"
-                            placeholder="Restant"
-                            inputProps={{ readOnly: true }}
-                            value={restant}
-                            {...register("restant", { value: restant })}
+                            label="Quantité à fabriquer"
+                            placeholder="Quantité à fabrique"
+                            // inputProps={{ readOnly: true }}
+                            // value={restant}
+                            defaultValue={props.currentRow.qteafabriquer}
+                            {...register(
+                              "qteafabriquer"
+                              //  { value: restant }
+                            )}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Besoin"
-                            placeholder="Besoin"
-                            defaultValue={props.currentRow.besoin}
-                            {...register("besoin", {})}
+                            label="PGHT"
+                            placeholder="PGHT"
+                            defaultValue={props.currentRow.PGHT}
+                            {...register("PGHT", {})}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Bc"
-                            placeholder="Bc"
-                            defaultValue={props.currentRow.bc}
-                            {...register("bc", {})}
+                            label="Ratio Gratuité"
+                            placeholder="Ratio Gratuité"
+                            // value={commander}
+                            defaultValue={props.currentRow.ratio}
+                            {...register(
+                              "ratio"
+                              //  { value: commander }
+                            )}
+                            // onChange={onChangeCommander}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
-                            label="Commander"
-                            placeholder="Commander"
-                            value={commander}
-                            {...register("commander", { value: commander })}
-                            onChange={onChangeCommander}
+                            label="CA prévision"
+                            placeholder="CA prévision"
+                            defaultValue={props.currentRow.CA}
+                            {...register("CA", {})}
                           />{" "}
-                          <TextField
-                            style={{ width: "45%", margin: "2%" }}
-                            label="Identifiant"
-                            placeholder="Identifiant"
-                            defaultValue={props.currentRow.identifiant}
-                            {...register("identifiant", {})}
-                          />{" "}
-                          <TextField
-                            style={{ width: "45%", margin: "2%" }}
-                            label="Cu"
-                            placeholder="Cu"
-                            value={estimatif}
-                            {...register("cu", { value: estimatif })}
-                            onChange={onChangeEstimatifn}
-                          />{" "}
-                          <TextField
-                            style={{ width: "45%", margin: "2%" }}
-                            label="Cout"
-                            placeholder="Cout"
-                            value={coutAchat}
-                            {...register("cout", { value: coutAchat })}
-                          />{" "}
-                          <TextField
-                            style={{ width: "45%", margin: "2%" }}
-                            label="Mpac"
-                            placeholder="Mpac"
-                            value={mpac}
-                            {...register("mpac", { value: mpac })}
-                          />
                         </form>
                       </Box>
                       {Object.keys(errors).length > 0 && (

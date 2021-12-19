@@ -3,17 +3,6 @@ import axios from "axios";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { getCacheMatiere, updateCacheMatiere,  } from "../utils/testCache";
 
-
-
-
-
-
-
-
-
-
-
-
 export const getMatieres = createAsyncThunk(
   "matieres/getMatieres",
   async () => {
