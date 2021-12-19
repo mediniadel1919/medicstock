@@ -126,8 +126,7 @@ const MatieresPremieres = () => {
             >
               <div>
                 <PageTitle
-                  heading="Matiéres Premiéres"
-                  subheading="Gérer les Matiéres Premiéres"
+                  heading="Prévision"
                   icon="pe-7s-eyedropper icon-gradient bg-dark font-weight-bolder"
                   dataSize={previsions
                     .map((prevision) => prevision.CA)
@@ -135,7 +134,7 @@ const MatieresPremieres = () => {
                       return parseFloat(accum) + parseFloat(element);
                     }, 0)}
                   addNewMatiere={{}}
-                  secTitle='CA Prévisions'
+                  secTitle="CA Prévisions"
                 />
               </div>
               {/* <h1>fournissuer</h1> */}

@@ -1,35 +1,10 @@
-export const ProduitsFinals = [
-  {
-    icon: "pe-7s-server  icon-gradient bg-white font-weight-bolder ",
-    label: "Produits Finaux",
-    to: "/produits",
-    // content: [
-    //   {
-    //     label: "Prospects",
-    //     to: "/ventes/gestion-clients/prospects",
-    //   },
-    //   {
-    //     label: "Clients",
-    //     to: "/ventes/gestion-clients/clients",
-    //   },]
-  },
-  {
-    icon:" pe-7s-server icon-gradient bg-white font-weight-bolder",
-    label:"Ajouter un produit final",
-    to:"/"
-  }
-];
+export const ProduitsFinals = [];
 export const MatieresPremieres = [
   {
     icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
-    label: "Matiéres Premiéres",
+    label: "Achat Besoin",
     to: "/matieres",
   },
-  {
-    icon:" pe-7s-magic-wand icon-gradient bg-white font-weight-bolder",
-    label:"Ajouter matiére première",
-    to:"/new-matiere"
-  }
 ];
 
 export const Prevision = [
@@ -38,7 +13,41 @@ export const Prevision = [
     label: "Prévision",
     to: "/prevision",
   },
- 
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Qte Stock Semi copi",
+    to: "/qte-semi",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Desision Bc",
+    to: "/desision",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Qte Stock MP",
+    to: "/qte-mp",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Qte Stock AC",
+    to: "/qte-ac",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "RECAP",
+    to: "/recap",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Achat",
+    to: "/achat",
+  },
+  {
+    icon: " pe-7s-eyedropper icon-gradient bg-white font-weight-bolder",
+    label: "Annulation Achat",
+    to: "/annulation-achat",
+  },
 ];
 /* export const VentesNav = [
   {

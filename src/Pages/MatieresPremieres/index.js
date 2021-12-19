@@ -62,7 +62,6 @@ const MatieresPremieres = () => {
       accessor: "restant",
       className:
         "d-flex justify-content-center text-center text-primary font-weight-bolder",
-      
     },
     {
       Header: "Besoin",
@@ -141,11 +140,28 @@ const MatieresPremieres = () => {
             >
               <div>
                 <PageTitle
-                  heading="Matiéres Premiéres"
-                  subheading="Gérer les Matiéres Premiéres"
+                  heading="Achat Besoin"
                   icon="pe-7s-eyedropper icon-gradient bg-dark font-weight-bolder"
-                  dataSize={matieres.length}
+                  dataSize={matieres
+                    .map((matieres) => matieres.cout)
+                    .reduce((accum, element) => {
+                      return parseFloat(accum) + parseFloat(element);
+                    }, 0)}
                   addNewMatiere={{}}
+                  secTitle="TND:Total Cout"
+                  dataSize2={matieres
+                    .map((matieres) => matieres.mpac)
+                    .reduce((accum, element) => {
+                      return parseFloat(accum) + parseFloat(element);
+                    }, 0)}
+                  secTitle2="TND :Valorisation du stock"
+                  secTitle3="45000TND :Valorisation du stock PF"
+                  dataSize4={matieres
+                    .map((matieres) => matieres.cout)
+                    .reduce((accum, element) => {
+                      return parseFloat(accum) + parseFloat(element) + 45000;
+                    }, 0)}
+                  secTitle4="TND: Valeur theorique"
                 />
               </div>
               {/* <h1>fournissuer</h1> */}

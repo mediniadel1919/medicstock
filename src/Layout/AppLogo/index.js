@@ -24,6 +24,7 @@ const HeaderLogo = () => {
     <Fragment>
       <div className="bg-color app-header__logo">
         <div className="logo-src" />
+
         <div className="header__pane ml-auto">
           <div onClick={toggleEnableClosedSidebar}>
             <Slider

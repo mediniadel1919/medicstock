@@ -9,6 +9,14 @@ import { useSelector } from "react-redux";
 import MatieresPremieres from "./Pages/MatieresPremieres";
 import ProduitsFinales from "./Pages/ProduitsFinales";
 import Prevision from "./Pages/Prevision";
+import Qtesemi from "./Pages/Qtesemi";
+import Desision from "./Pages/Desision";
+import Qtemp from "./Pages/Qtemp";
+import Qteac from "./Pages/Qteac";
+import Recap from "./Pages/Recap";
+import Annulation from "./Pages/Annulation";
+import Achat from "./Pages/Achat";
+
 
 import NewMatiere from "./Pages/MatieresPremieres/NewMatiere";
 function App() {
@@ -47,6 +55,14 @@ function App() {
                 <Route path="/matieres" component={MatieresPremieres} exact />
                 <Route path="/produits" component={ProduitsFinales} />
                 <Route path="/prevision" component={Prevision} />
+                <Route path="/qte-semi" component={Qtesemi} />
+                <Route path="/desision" component={Desision} />
+                <Route path="/qte-mp" component={Qtemp} />
+                <Route path="/qte-ac" component={Qteac} />
+                <Route path="/recap" component={Recap} />
+                <Route path="/annulation-achat" component={Annulation} />
+                <Route path="/achat" component={Achat} />
+
 
                 <Route path="/new-matiere" component={NewMatiere} />
               </Switch>

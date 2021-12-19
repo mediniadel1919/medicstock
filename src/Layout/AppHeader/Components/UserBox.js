@@ -31,6 +31,7 @@ const UserBox = () => {
                     src={avatar1}
                     alt=""
                   />
+
                   <FontAwesomeIcon
                     className="ml-2 opacity-8"
                     icon={faAngleDown}
@@ -87,6 +88,10 @@ const UserBox = () => {
             <div className="widget-content-left  ml-3 header-user-info">
               <div className="widget-heading">{loggedName}</div>
               <div className="widget-subheading">Gestion du Stock</div>
+              <img
+                src="../../../../src/assets/utils/images/gg (1).png"
+                alt=""
+              />
             </div>
           </div>
         </div>

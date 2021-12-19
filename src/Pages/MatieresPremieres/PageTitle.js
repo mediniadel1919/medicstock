@@ -2,7 +2,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import cx from "classnames";
 const PageTitle = (props) => {
-  let { heading, icon, subheading, dataSize } = props;
+  let {
+    heading,
+    icon,
+    subheading,
+    dataSize,
+    dataSize2,
+    dataSize3,
+    dataSize4,
+    secTitle,
+    secTitle4,
+    secTitle2,
+    secTitle3,
+  } = props;
   let { enablePageTitleIcon, enablePageTitleSubheading } = useSelector(
     (state) => state.ThemeOptions
   );
@@ -37,7 +49,43 @@ const PageTitle = (props) => {
                 className="mb-2 mr-2 p-3 badge badge-primary zoom"
                 size="lg"
               >
-                {dataSize} produits dans le stock
+                {dataSize} {secTitle}
+              </span>
+            </div>
+          )}
+          {dataSize != -1 && (
+            <div className="page-title-actions">
+              <span
+                style={{ backgroundColor: "#43425d" }}
+                block
+                className="mb-2 mr-2 p-3 badge badge-primary zoom"
+                size="lg"
+              >
+                {dataSize2} {secTitle2}
+              </span>
+            </div>
+          )}
+          {dataSize != -1 && (
+            <div className="page-title-actions">
+              <span
+                style={{ backgroundColor: "#43425d" }}
+                block
+                className="mb-2 mr-2 p-3 badge badge-primary zoom"
+                size="lg"
+              >
+                {dataSize3} {secTitle3}
+              </span>
+            </div>
+          )}
+          {dataSize != -1 && (
+            <div className="page-title-actions">
+              <span
+                style={{ backgroundColor: "#43425d" }}
+                block
+                className="mb-2 mr-2 p-3 badge badge-primary zoom"
+                size="lg"
+              >
+                {dataSize4} {secTitle4}
               </span>
             </div>
           )}

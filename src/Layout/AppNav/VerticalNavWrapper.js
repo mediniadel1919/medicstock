@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import MetisMenu from "react-metismenu";
 import { useDispatch, useSelector } from "react-redux";
 import { setEnableMobileMenu } from "../../redux/themeOptionsSlice";
-import { MatieresPremieres, ProduitsFinals,Prevision } from "./NavItems";
+import { MatieresPremieres, ProduitsFinals, Prevision } from "./NavItems";
 
 const Nav = (props) => {
   const dispatch = useDispatch();
@@ -14,8 +14,7 @@ const Nav = (props) => {
 
   return (
     <Fragment>
-   
-              <h5 className="app-sidebar__heading text-white">Gestion des matières premières</h5>
+      <h5 className="app-sidebar__heading text-white">Bienvenue</h5>
 
       <MetisMenu
         content={MatieresPremieres}
@@ -25,7 +24,7 @@ const Nav = (props) => {
         iconNamePrefix=""
         classNameStateIcon="pe-7s-angle-down"
       />
-                 <h5 className="app-sidebar__heading text-white">Gestion des produits finaux</h5>
+      <h5 className="app-sidebar__heading text-white"></h5>
       <MetisMenu
         content={ProduitsFinals}
         onSelected={toggleMobileSidebar}
@@ -35,22 +34,16 @@ const Nav = (props) => {
         classNameContainer={"open"}
         classNameItemHasVisibleChild="open"
         activeLinkFromLocation
-        
-
-
       />
-        <MetisMenu
+      <MetisMenu
         content={Prevision}
-        onSelected={ toggleMobileSidebar}
+        onSelected={toggleMobileSidebar}
         className="vertical-nav-menu"
         iconNamePrefix=""
         classNameStateIcon="pe-7s-angle-down"
         classNameContainer={"open"}
         classNameItemHasVisibleChild="open"
         activeLinkFromLocation
-        
-
-
       />
     </Fragment>
   );

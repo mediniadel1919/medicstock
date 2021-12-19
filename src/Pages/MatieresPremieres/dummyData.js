@@ -2,7 +2,7 @@ exports.data = [
   {
     id: 1,
     code: "RM0001",
-    designation: "",
+    designation: "Matiére Premiére 1",
     stock: 9.2,
     consommation: 3.42,
     restant: 5.78,
@@ -16,7 +16,7 @@ exports.data = [
   {
     id: 2,
     code: "RM0002",
-    designation: "",
+    designation: "Matiére Premiére 2",
     stock: "4.5",
     consommation: "0.60",
     restant: "3.90",
@@ -30,7 +30,7 @@ exports.data = [
   {
     id: 3,
     code: "RM0003",
-    designation: "",
+    designation: "Matiére Premiére 3",
     stock: "2.44",
     consommation: "0.10",
     restant: "2.34",
@@ -44,7 +44,7 @@ exports.data = [
   {
     id: 4,
     code: "RM0004",
-    designation: "",
+    designation: "Matiére Premiére 4",
     stock: "28",
     consommation: "2.98",
     restant: "25.03",
@@ -58,7 +58,7 @@ exports.data = [
   {
     id: 5,
     code: "RM0005",
-    designation: "",
+    designation: "Matiére Premiére 5",
     stock: "45.64",
     consommation: "5.03",
     restant: "40.62",
@@ -72,7 +72,7 @@ exports.data = [
   {
     id: 6,
     code: "RM0006",
-    designation: "",
+    designation: "Matiére Premiére 6",
     stock: "25.4",
     consommation: "4.65",
     restant: "20.75",
@@ -86,7 +86,7 @@ exports.data = [
   {
     id: 7,
     code: "RM0007",
-    designation: "",
+    designation: "Matiére Premiére 7",
     stock: "47.58",
     consommation: "8.15",
     restant: "39.43",
@@ -100,7 +100,7 @@ exports.data = [
   {
     id: 8,
     code: "RM0008",
-    designation: "",
+    designation: "Matiére Premiére 8",
     stock: "2163.02",
     consommation: "734.42",
     restant: "1428.60",
@@ -114,7 +114,7 @@ exports.data = [
   {
     id: 9,
     code: "RM0009",
-    designation: "",
+    designation: "Matiére Premiére 9",
     stock: "0.64",
     consommation: "0.11",
     restant: "0.53",
@@ -128,7 +128,7 @@ exports.data = [
   {
     id: 10,
     code: "RM00010",
-    designation: "",
+    designation: "Matiére Premiére 10",
     stock: "301.92",
     consommation: "35.00",
     restant: "266.92",
@@ -142,7 +142,7 @@ exports.data = [
   {
     id: 11,
     code: "PP0001",
-    designation: "",
+    designation: "Produit Principale 1",
     stock: "36266",
     consommation: "4000.00",
     restant: "32266.00",
@@ -156,7 +156,7 @@ exports.data = [
   {
     id: 12,
     code: "PP0002",
-    designation: "",
+    designation: "Produit Principale 2",
     stock: "54812",
     consommation: "3000.00",
     restant: "51812.00",
@@ -170,7 +170,7 @@ exports.data = [
   {
     id: 13,
     code: "PP0003",
-    designation: "",
+    designation: "Produit Principale 3",
     stock: "11090",
     consommation: "1000.00",
     restant: "10090.00",
@@ -184,7 +184,7 @@ exports.data = [
   {
     id: 14,
     code: "PP0004",
-    designation: "",
+    designation: "Produit Principale 4",
     stock: "800",
     consommation: "1000.00",
     restant: "-200.00",
@@ -198,7 +198,7 @@ exports.data = [
   {
     id: 15,
     code: "PP0005",
-    designation: "",
+    designation: "Produit Principale 5",
     stock: "9020",
     consommation: "1000.00",
     restant: "8020.00",
@@ -212,7 +212,7 @@ exports.data = [
   {
     id: 16,
     code: "PP0006",
-    designation: "",
+    designation: "Produit Principale 6",
     stock: "9000",
     consommation: "0.00",
     restant: "9000.00",
@@ -226,7 +226,7 @@ exports.data = [
   {
     id: 17,
     code: "PP0007",
-    designation: "",
+    designation: "Produit Principale 7",
     stock: "402",
     consommation: "0.00",
     restant: "402.00",
@@ -240,7 +240,7 @@ exports.data = [
   {
     id: 18,
     code: "PP0008",
-    designation: "",
+    designation: "Produit Principale 8",
     stock: "2163.02",
     consommation: "734.42",
     restant: "1428.60",
@@ -254,7 +254,7 @@ exports.data = [
   {
     id: 19,
     code: "PP0009",
-    designation: "",
+    designation: "Produit Principale 9",
     stock: "0.64",
     consommation: "0.11",
     restant: "0.53",
@@ -268,7 +268,7 @@ exports.data = [
   {
     id: 20,
     code: "PP00010",
-    designation: "",
+    designation: "Produit Principale 10",
     stock: "659",
     consommation: "3000.00",
     restant: "-2341.00",
@@ -282,7 +282,7 @@ exports.data = [
   {
     id: 21,
     code: "SP0001",
-    designation: "",
+    designation: "Substance Primére 1",
     stock: "1543",
     consommation: "300.00",
     restant: "1243.00",
@@ -297,7 +297,7 @@ exports.data = [
   {
     id: 22,
     code: "SP0002",
-    designation: "",
+    designation: "Substance Primére 2",
     stock: "3503",
     consommation: "0.00",
     restant: "51812.00",
@@ -311,7 +311,7 @@ exports.data = [
   {
     id: 23,
     code: "SP0003",
-    designation: "",
+    designation: "Substance Primére 3",
     stock: "11090",
     consommation: "1000.00",
     restant: "762.040",
@@ -325,7 +325,7 @@ exports.data = [
   {
     id: 24,
     code: "SP0004",
-    designation: "",
+    designation: "Substance Primére 4",
     stock: "800",
     consommation: "1000.00",
     restant: "-200.00",
@@ -339,7 +339,7 @@ exports.data = [
   {
     id: 25,
     code: "SP0005",
-    designation: "",
+    designation: "Substance Primére 5",
     stock: "9020",
     consommation: "1000.00",
     restant: "8020.00",
@@ -353,7 +353,7 @@ exports.data = [
   {
     id: 26,
     code: "SP0006",
-    designation: "",
+    designation: "Substance Primére 6",
     stock: "9000",
     consommation: "0.00",
     restant: "9000.00",
@@ -367,7 +367,7 @@ exports.data = [
   {
     id: 27,
     code: "SP0007",
-    designation: "",
+    designation: "Substance Primére 7",
     stock: "402",
     consommation: "0.00",
     restant: "402.00",
@@ -381,7 +381,7 @@ exports.data = [
   {
     id: 28,
     code: "SP0008",
-    designation: "",
+    designation: "Substance Primére 8",
     stock: "1000.02",
     consommation: "334.45",
     restant: "1428.60",
@@ -395,7 +395,7 @@ exports.data = [
   {
     id: 29,
     code: "SP0009",
-    designation: "",
+    designation: "Substance Primére 9",
     stock: "0.64",
     consommation: "0.11",
     restant: "0.53",
@@ -409,7 +409,7 @@ exports.data = [
   {
     id: 30,
     code: "SP00010",
-    designation: "",
+    designation: "Substance Primére 10",
     stock: "659",
     consommation: "3000.00",
     restant: "-2341.00",

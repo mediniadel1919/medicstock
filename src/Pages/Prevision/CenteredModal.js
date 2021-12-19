@@ -20,14 +20,63 @@ function CenteredModal(props) {
   const [commander, setcommander] = useState(props.currentRow.commander);
   const [mpac, setmpac] = useState(props.currentRow.mpac);
 
-  const onChangeStock = (e) => {
-    setStock(e.target.value);
-    setRestant(parseFloat(e.target.value) - parseFloat(consommation));
-    setmpac(parseFloat(e.target.value) * parseFloat(coutAchat));
+  const [previsiongratuiter, setPrevisiongratuiter] = useState(
+    props.currentRow.previsiongratuiter
+  );
+  const [produitfinis, setProduitfinis] = useState(
+    props.currentRow.produitfinis
+  );
+  const [produitsemifini, setProduitsemifini] = useState(
+    props.currentRow.produitsemifini
+  );
+
+  const [qteafabriquer, setQteafabriquer] = useState(
+    props.currentRow.qteafabriquer
+  );
+  const [CA, setCA] = useState(props.currentRow.CA);
+  const [ratio, setRatio] = useState(props.currentRow.ratio);
+  const [PGHT, setPGHT] = useState(props.currentRow.PGHT);
+
+  const onChangegratuiter = (e) => {
+    setPrevisiongratuiter(e.target.value);
+    setQteafabriquer(
+      parseFloat(e.target.value) -
+        parseFloat(produitfinis) -
+        parseFloat(produitsemifini)
+    );
+    setCA(parseFloat(PGHT) / (parseFloat(ratio) * parseFloat(e.target.value)));
   };
-  const onChangeConsommation = (e) => {
-    setConsommation(e.target.value);
-    setRestant(parseFloat(stock) - parseFloat(e.target.value));
+  const onChangePGHT = (e) => {
+    setPGHT(e.target.value);
+    setCA(
+      parseFloat(e.target.value) /
+        (parseFloat(ratio) * parseFloat(previsiongratuiter))
+    );
+  };
+
+  const onChangeRatio = (e) => {
+    setRatio(e.target.value);
+    setCA(
+      parseFloat(PGHT) /
+        (parseFloat(e.target.value) * parseFloat(previsiongratuiter))
+    );
+  };
+
+  const onChangeproduitfini = (e) => {
+    setProduitfinis(e.target.value);
+    setQteafabriquer(
+      parseFloat(previsiongratuiter) -
+        parseFloat(e.target.value) -
+        parseFloat(produitsemifini)
+    );
+  };
+  const onChangeproduitsemifini = (e) => {
+    setProduitsemifini(e.target.value);
+    setQteafabriquer(
+      parseFloat(previsiongratuiter) -
+        parseFloat(produitfinis) -
+        parseFloat(e.target.value)
+    );
   };
 
   const onChangeCommander = (e) => {
@@ -48,6 +97,13 @@ function CenteredModal(props) {
       setcoutAchat(props.currentRow.cout);
       setcommander(props.currentRow.commander);
       setmpac(props.currentRow.mpac);
+      setPrevisiongratuiter(props.currentRow.previsiongratuiter);
+      setProduitfinis(props.currentRow.produitfinis);
+      setQteafabriquer(props.currentRow.qteafabriquer);
+      setProduitsemifini(props.currentRow.produitsemifini);
+      setCA(props.currentRow.CA);
+      setRatio(props.currentRow.ratio);
+      setPGHT(props.currentRow.PGHT);
     }
   }, [props.currentRow]);
 
@@ -70,7 +126,7 @@ function CenteredModal(props) {
   };
 
   return (
-    <Modal {...props} size="lg" centered >
+    <Modal {...props} size="lg" centered>
       <Modal.Header closeButton>
         <Modal.Title>Détails de la matière premiére</Modal.Title>
       </Modal.Header>
@@ -109,66 +165,80 @@ function CenteredModal(props) {
                             style={{ width: "45%", margin: "2%" }}
                             label="Prévision y compris gratuité"
                             placeholder="Prévision y compris gratuité"
-                            defaultValue={props.currentRow.previsiongratuiter}
-                            {...register("previsiongratuiter", {})}
+                            value={previsiongratuiter}
+                            // defaultValue={props.currentRow.previsiongratuiter}
+                            {...register("previsiongratuiter", {
+                              value: previsiongratuiter,
+                            })}
+                            onChange={onChangegratuiter}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="Produit finis"
                             placeholder="Produit finis"
-                            // value={stock}
-                            defaultValue={props.currentRow.produitfinis}
-                            {...register("produitfinis")}
+                            value={produitfinis}
+                            //defaultValue={props.currentRow.produitfinis}
+                            {...register("produitfinis", {
+                              value: produitfinis,
+                            })}
+                            onChange={onChangeproduitfini}
                             // onChange={onChangeStock}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="Produit semi finis"
                             placeholder="Produit semi finis"
-                            // value={consommation}
-                            defaultValue={props.currentRow.produitsemifini}
+                            value={produitsemifini}
+                            //defaultValue={props.currentRow.produitsemifini}
                             {...register("produitsemifini", {
-                              // value: consommation,
+                              value: produitsemifini,
                             })}
+                            onChange={onChangeproduitsemifini}
                             // onChange={onChangeConsommation}
                           />
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="Quantité à fabriquer"
                             placeholder="Quantité à fabrique"
-                            // inputProps={{ readOnly: true }}
-                            // value={restant}
-                            defaultValue={props.currentRow.qteafabriquer}
-                            {...register(
-                              "qteafabriquer"
-                              //  { value: restant }
-                            )}
+                            inputProps={{ readOnly: true }}
+                            value={qteafabriquer}
+                            //defaultValue={props.currentRow.qteafabriquer}
+                            {...register("qteafabriquer", {
+                              value: qteafabriquer,
+                            })}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="PGHT"
                             placeholder="PGHT"
-                            defaultValue={props.currentRow.PGHT}
-                            {...register("PGHT", {})}
+                            // defaultValue={props.currentRow.PGHT}
+                            value={PGHT}
+                            {...register("PGHT", {
+                              value: PGHT,
+                            })}
+                            onChange={onChangePGHT}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="Ratio Gratuité"
                             placeholder="Ratio Gratuité"
-                            // value={commander}
-                            defaultValue={props.currentRow.ratio}
-                            {...register(
-                              "ratio"
-                              //  { value: commander }
-                            )}
+                            value={ratio}
+                            //defaultValue={props.currentRow.ratio}
+                            {...register("ratio", {
+                              value: ratio,
+                            })}
+                            onChange={onChangeRatio}
                             // onChange={onChangeCommander}
                           />{" "}
                           <TextField
                             style={{ width: "45%", margin: "2%" }}
                             label="CA prévision"
                             placeholder="CA prévision"
-                            defaultValue={props.currentRow.CA}
-                            {...register("CA", {})}
+                            inputProps={{ readOnly: true }}
+                            value={CA}
+                            {...register("CA", {
+                              value: CA,
+                            })}
                           />{" "}
                         </form>
                       </Box>
